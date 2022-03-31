@@ -28,13 +28,13 @@ export default function ToDo(userName) {
   const [listMemEat, setListMemEat] = React.useState([]);
   const [todayMoney, setTodayMoney] = React.useState(0);
   const [todayMonWord, setTodayMonWord] = React.useState('');
- 
+  const [infomation, setInfomation] = React.useState('');
 
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setLoading(true);
-    if (memPay === '' || listMemEat.length === 0 || todayMoney === 0) {
+    if (memPay === '' || infomation === '' || listMemEat.length === 0 || todayMoney === 0) {
       setAlertMessage('Please fill all fields');
       setLoading(false);
       setOpen(true);
@@ -44,6 +44,8 @@ export default function ToDo(userName) {
         param += "l=" + listMemEat[i] + "&";
       }
       param += "memPay=" + memPay;
+      param += "&todayMonInWords=" + todayMonWord;
+      param += "&info=" + infomation;
       updateData(param).then(res => {
         setAlertMessage(res);
         setLoading(false);
@@ -189,6 +191,18 @@ export default function ToDo(userName) {
                     InputProps={{
                       readOnly: true,
                     }}
+                  />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                    sx={{ width: '30ch', margin: '0 auto' }}
+                    id="outlined-info-input"
+                    label="Infomation"
+                    value={infomation}
+                    InputProps={{
+                      'aria-label': 'info',
+                    }}
+                    onChange={(event) => setInfomation(event.target.value)}
                   />
               </Grid>
               <Grid item xs={12} md={12}>
