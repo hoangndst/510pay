@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/510Pay/static/css/main.f4b216cc.css",
-    "main.js": "/510Pay/static/js/main.dffb77ce.js",
-    "static/js/787.ff1ed2dc.chunk.js": "/510Pay/static/js/787.ff1ed2dc.chunk.js",
-    "static/media/logo.svg": "/510Pay/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/510Pay/index.html",
-    "main.f4b216cc.css.map": "/510Pay/static/css/main.f4b216cc.css.map",
-    "main.dffb77ce.js.map": "/510Pay/static/js/main.dffb77ce.js.map",
-    "787.ff1ed2dc.chunk.js.map": "/510Pay/static/js/787.ff1ed2dc.chunk.js.map"
+    "main.css": "/510pay/static/css/main.f4b216cc.css",
+    "main.js": "/510pay/static/js/main.c8cdb6e2.js",
+    "static/js/787.ff1ed2dc.chunk.js": "/510pay/static/js/787.ff1ed2dc.chunk.js",
+    "static/media/logo.svg": "/510pay/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/510pay/index.html",
+    "main.f4b216cc.css.map": "/510pay/static/css/main.f4b216cc.css.map",
+    "main.c8cdb6e2.js.map": "/510pay/static/js/main.c8cdb6e2.js.map",
+    "787.ff1ed2dc.chunk.js.map": "/510pay/static/js/787.ff1ed2dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4b216cc.css",
-    "static/js/main.dffb77ce.js"
+    "static/js/main.c8cdb6e2.js"
   ]
 }
