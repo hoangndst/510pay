@@ -14,6 +14,7 @@ import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { updateData } from '../api/ApiServer';
+
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -122,7 +123,8 @@ export default function ToDo(userName) {
                             <ListItemAvatar>
                               <Avatar
                                 alt={`Avatar n°${value + 1}`}
-                                src={`/img/avatar/${members.indexOf(value) + 1}.png`}
+                                // src={`/img/avatar/${members.indexOf(value) + 1}.png`}
+                                src={require(`../images/avatar/${members.indexOf(value) + 1}.png`)}
                               />
                             </ListItemAvatar>
                             <ListItemText id={labelId} primary={`${value}`} />

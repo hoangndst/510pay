@@ -33,7 +33,7 @@ function App() {
           }}>
             <Box sx={{ borderBottom: 0, borderColor: 'divider'}}>
               <TabList onChange={handleChange} aria-label="lab API tabs example" centered>
-                <Tab sx={{fontWeight: 'Bold'}} label="Controller" value="1" />
+                <Tab sx={{fontWeight: 'Bold'}} label="510Pay" value="1" />
                 <Tab sx={{fontWeight: 'Bold'}} label="Information" value="2" />
               </TabList>
             </Box>
