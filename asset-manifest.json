@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/510pay/static/css/main.f4b216cc.css",
-    "main.js": "/510pay/static/js/main.5458d159.js",
+    "main.js": "/510pay/static/js/main.d22a6557.js",
     "static/js/787.ff1ed2dc.chunk.js": "/510pay/static/js/787.ff1ed2dc.chunk.js",
     "index.html": "/510pay/index.html",
     "main.f4b216cc.css.map": "/510pay/static/css/main.f4b216cc.css.map",
-    "main.5458d159.js.map": "/510pay/static/js/main.5458d159.js.map",
+    "main.d22a6557.js.map": "/510pay/static/js/main.d22a6557.js.map",
     "787.ff1ed2dc.chunk.js.map": "/510pay/static/js/787.ff1ed2dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4b216cc.css",
-    "static/js/main.5458d159.js"
+    "static/js/main.d22a6557.js"
   ]
 }
