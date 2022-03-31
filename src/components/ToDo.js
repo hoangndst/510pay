@@ -22,8 +22,9 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function ToDo() {
+export default function ToDo(userName) {
 
+  const [user, setUser] = React.useState(userName);
   const members = ['Hoàng', 'Hiên', 'Hiếu', 'Hưng', 'Tiến'];
   const [memPay, setMemPay] = React.useState('');
   const [listMemEat, setListMemEat] = React.useState([]);
@@ -121,7 +122,7 @@ export default function ToDo() {
                             <ListItemAvatar>
                               <Avatar
                                 alt={`Avatar n°${value + 1}`}
-                                // src={`%PUBLIC_URL%/img/avatar/${members.indexOf(value) + 1}.png`}
+                                src={`../img/avatar/${members.indexOf(value) + 1}.png`}
                               />
                             </ListItemAvatar>
                             <ListItemText id={labelId} primary={`${value}`} />
@@ -130,7 +131,6 @@ export default function ToDo() {
                       );
                     })}
                   </List>
-
               </Grid>
               <Grid item xs={12} md={12}>
                 <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
