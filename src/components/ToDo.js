@@ -1,19 +1,15 @@
-import { Grid, Dialog, Chip, Stack, Avatar, ListItem, DialogTitle, DialogActions, DialogContentText, DialogContent, Paper, Alert, Typography, FormControlLabel, Checkbox, Button, FormControl, OutlinedInput, Select, MenuItem, FormGroup, InputAdornment } from '@mui/material'
-import Switch from '@mui/material/Switch';
+import { Grid, Dialog, TextField, Avatar, ListItem, DialogTitle, DialogActions, DialogContentText, DialogContent, Paper, Alert, Typography, Checkbox, Button, FormControl, OutlinedInput, Select, MenuItem, InputAdornment } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import React from 'react'
 import { useEffect } from 'react';
 import AddTaskIcon from '@mui/icons-material/AddTask';
-import FaceIcon from '@mui/icons-material/Face';
+import LoadingButton from '@mui/lab/LoadingButton';
 import List from '@mui/material/List';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { updateData } from '../api/ApiServer';
+import { default as VNnum2words } from 'vn-num2words';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -25,25 +21,35 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ToDo(userName) {
 
-  const [user, setUser] = React.useState(userName);
   const members = ['Hoàng', 'Hiên', 'Hiếu', 'Hưng', 'Tiến'];
+  const [alertMessage, setAlertMessage] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
   const [memPay, setMemPay] = React.useState('');
   const [listMemEat, setListMemEat] = React.useState([]);
   const [todayMoney, setTodayMoney] = React.useState(0);
+  const [todayMonWord, setTodayMonWord] = React.useState('');
  
 
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    var param = "todayMoney=" + todayMoney + "&";
-    for (var i = 0; i < listMemEat.length; i++) {
-      param += "l=" + listMemEat[i] + "&";
+    setLoading(true);
+    if (memPay === '' || listMemEat.length === 0 || todayMoney === 0) {
+      setAlertMessage('Please fill all fields');
+      setLoading(false);
+      setOpen(true);
+    } else {
+      var param = "todayMoney=" + todayMoney + "&";
+      for (var i = 0; i < listMemEat.length; i++) {
+        param += "l=" + listMemEat[i] + "&";
+      }
+      param += "memPay=" + memPay;
+      updateData(param).then(res => {
+        setAlertMessage(res);
+        setLoading(false);
+        setOpen(true);
+      });
     }
-    param += "memPay=" + memPay;
-    updateData(param).then(res => {
-      console.log(res);
-    });
-    setOpen(true);
   };
 
   const handleClose = () => {
@@ -57,7 +63,7 @@ export default function ToDo(userName) {
 
   const handleMoneyInput = (event) => {
     setTodayMoney(event.target.value);
-    console.log(todayMoney);
+    setTodayMonWord(VNnum2words(event.target.value) + ' đồng');
   };
 
 
@@ -138,7 +144,7 @@ export default function ToDo(userName) {
                 <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
                     Payer
                 </Typography>
-                <FormControl  sx={{ m: 1, width: '25ch' }}>
+                <FormControl  sx={{ m: 1, width: '30ch' }}>
                     <Select
                     displayEmpty
                     inputProps={{ 'aria-label': 'Without label' }}
@@ -160,36 +166,58 @@ export default function ToDo(userName) {
                 <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
                   Amount
                 </Typography>
-                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <FormControl sx={{ m: 1, width: '30ch' }} variant="outlined">
                   <OutlinedInput
                     type='number'
-                    id="outlined-adornment-weight"
+                    id="outlined-adornment-amount"
                     value={todayMoney}
                     endAdornment={<InputAdornment position="end">VND</InputAdornment>}
-                    aria-describedby="outlined-weight-helper-text"
+                    aria-describedby="outlined-amount-helper-text"
                     inputProps={{
-                      'aria-label': 'weight',
+                      'aria-label': 'amount',
                     }}
                     onChange={handleMoneyInput}
                   />
                 </FormControl>
               </Grid>
               <Grid item xs={12} md={12}>
-                <Button variant="contained" startIcon={<AddTaskIcon />} onClick={handleClickOpen} >
+                <TextField
+                    sx={{ width: '30ch', margin: '0 auto' }}
+                    id="outlined-read-only-input"
+                    label="Amount In Words"
+                    value={todayMonWord}
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                  />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                {/* <Button variant="contained" startIcon={<AddTaskIcon />} onClick={handleClickOpen} >
                   ADD TO TODAY LIST
-                </Button>
+                </Button> */}
+                <LoadingButton
+                  onClick={handleClickOpen}
+                  endIcon={<AddTaskIcon />}
+                  loading={loading}
+                  loadingPosition="end"
+                  variant="contained"
+                >
+                  ADD TO TODAY LIST
+                </LoadingButton>
                 <Dialog
                   open={open}
                   onClose={handleClose}
                   aria-labelledby="alert-dialog-title"
                   aria-describedby="alert-dialog-description"
                 >
-                  <DialogTitle id="alert-dialog-title">
+                  <DialogTitle id="alert-dialog-title" sx={{ fontSize: 20, fontWeight: 1000 }}>
                     {"Notification from 510Gangz"}
                   </DialogTitle>
                   <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                      Update Successfully!
+                      <strong>
+                        {alertMessage}
+                      </strong>
                     </DialogContentText>
                   </DialogContent>
                   <DialogActions>
