@@ -122,7 +122,7 @@ export default function ToDo(userName) {
                             <ListItemAvatar>
                               <Avatar
                                 alt={`Avatar n°${value + 1}`}
-                                src={`../img/avatar/${members.indexOf(value) + 1}.png`}
+                                src={`/img/avatar/${members.indexOf(value) + 1}.png`}
                               />
                             </ListItemAvatar>
                             <ListItemText id={labelId} primary={`${value}`} />
