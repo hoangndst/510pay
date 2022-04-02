@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Infomation() {
 
-  const members = ['Hoàng', 'Hiên', 'Hiếu', 'Hưng', 'Tiến'];
+  // const members = ['Hoàng', 'Hiên', 'Hiếu', 'Hưng', 'Tiến'];
   const [date, setDate] = React.useState(new Date());
   const [rows, setRows] = React.useState([]);
   const [columns, setColumns] = React.useState([]);
@@ -35,12 +35,13 @@ export default function Infomation() {
 
   useEffect(() => {
     if (date) {
-      let params = 'option=log&date=' + date;
+      let params = 'option=log&date=' + date.toLocaleDateString('vi-VN');
       // console.log(params);
       getData(params).then(res => {
         // console.log(res.date);
         setLogRow(res.rows);
         setLogColumns(res.columns);
+        // console.log(res);
       });
     }
   }, [date]);
@@ -100,7 +101,7 @@ export default function Infomation() {
                       inputFormat="dd/MM/yyyy"
                       onChange={(newValue) => {
                         setDate(newValue);
-                        console.log(newValue);
+                        // console.log(newValue);
                       }}
                       renderInput={(params) => <TextField {...params} />}
                     />
