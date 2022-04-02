@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "510Pay",
+  "name": "510Pay - For Real Money",
   "icons": [
     {
       "src": "favicon.ico",
@@ -16,6 +16,11 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "510.png",
+      "type": "image/png",
+      "sizes": "1000x1260"
     }
   ],
   "start_url": ".",
