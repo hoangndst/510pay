@@ -1,4 +1,4 @@
-import { Grid, TextField, Paper, Alert, Typography } from '@mui/material'
+import { Grid, TextField, Paper, Alert, Typography, CardMedia } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import React from 'react'
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -121,6 +121,14 @@ export default function Infomation() {
                     />
                   </div>
                 </div>
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <CardMedia
+                  component={"iframe"}
+                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEiOE6Vzj9UFKMdqLmvPsHiWBikjx2K3Ypu1Ntbr7t8lQWTdhStBrav4ToNC0uJMu9ID-dkfnYtzPB/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                  title="Sheet"
+                  style={{ height: 400, width: '30ch', margin: '0px auto' }}
+                />
               </Grid>
             </Grid> 
         </Paper>
