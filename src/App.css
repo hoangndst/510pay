@@ -6,6 +6,8 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  
+  /* -webkit-print-color-adjust: exact;  */
 }
 
 @media (prefers-reduced-motion: no-preference) {

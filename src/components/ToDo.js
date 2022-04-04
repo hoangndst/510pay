@@ -1,6 +1,7 @@
-import { Grid, Dialog, TextField, Avatar, ListItem, DialogTitle, DialogActions, DialogContentText, DialogContent, Paper, Alert, Typography, Checkbox, Button, FormControl, OutlinedInput, Select, MenuItem, InputAdornment } from '@mui/material'
+import { Grid, Dialog, TextField, Avatar, ListItem, DialogTitle, DialogActions, DialogContentText, DialogContent, Paper, Alert, Typography, Checkbox, Button, FormControl, Select, MenuItem } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import React from 'react'
+import PropTypes from 'prop-types';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import LoadingButton from '@mui/lab/LoadingButton';
 import List from '@mui/material/List';
@@ -8,6 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { updateData } from '../api/ApiServer';
+import NumberFormat from 'react-number-format';
 import { default as VNnum2words } from 'vn-num2words';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -18,6 +20,36 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+
+const NumberFormatCustom = React.forwardRef(function NumberFormatCustom(props, ref) {
+  const { onChange, ...other } = props;
+
+  return (
+    <NumberFormat
+      {...other}
+      getInputRef={ref}
+      onValueChange={(values) => {
+        onChange({
+          target: {
+            name: props.name,
+            value: values.value,
+          },
+        });
+      }}
+      thousandSeparator
+      isNumericString
+      prefix="&#8363;"
+    />
+  );
+});
+
+NumberFormatCustom.propTypes = {
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+
+
 export default function ToDo(userName) {
 
   const members = ['Hoàng', 'Hiên', 'Hiếu', 'Hưng', 'Tiến'];
@@ -25,25 +57,41 @@ export default function ToDo(userName) {
   const [loading, setLoading] = React.useState(false);
   const [memPay, setMemPay] = React.useState('');
   const [listMemEat, setListMemEat] = React.useState([]);
-  const [todayMoney, setTodayMoney] = React.useState(0);
-  const [todayMonWord, setTodayMonWord] = React.useState('');
+  const [amountInWord, setAmountInWord] = React.useState('');
   const [infomation, setInfomation] = React.useState('');
 
   const [open, setOpen] = React.useState(false);
 
+  const [amount, setAmount] = React.useState({
+    textmask: '(100) 000-0000',
+    numberformat: '0'
+  });
+
+  const handleChange = (event) => {
+    setAmount({
+      ...amount,
+      [event.target.name]: event.target.value,
+    });
+    if (event.target.value === '') {
+      setAmountInWord('');
+    } else {
+      setAmountInWord(VNnum2words(parseInt(event.target.value)) + ' đồng');
+    }
+  };
+
   const handleClickOpen = () => {
     setLoading(true);
-    if (memPay === '' || infomation === '' || listMemEat.length === 0 || todayMoney === 0) {
+    if (memPay === '' || infomation === '' || listMemEat.length === 0 || amount.numberformat === '' || parseInt(amount.numberformat) === 0) {
       setAlertMessage('Please fill all fields');
       setLoading(false);
       setOpen(true);
     } else {
-      var param = "todayMoney=" + todayMoney + "&";
+      var param = "todayMoney=" + amount.numberformat + "&";
       for (var i = 0; i < listMemEat.length; i++) {
         param += "l=" + listMemEat[i] + "&";
       }
       param += "memPay=" + memPay;
-      param += "&todayMonInWords=" + todayMonWord;
+      param += "&todayMonInWords=" + amountInWord;
       param += "&info=" + infomation;
       updateData(param).then(res => {
         setAlertMessage(res);
@@ -57,14 +105,8 @@ export default function ToDo(userName) {
     setOpen(false);
   };
 
-
   const handleMemPay = (event) => {
     setMemPay(event.target.value);
-  };
-
-  const handleMoneyInput = (event) => {
-    setTodayMoney(event.target.value);
-    setTodayMonWord(VNnum2words(event.target.value) + ' đồng');
   };
 
 
@@ -130,7 +172,6 @@ export default function ToDo(userName) {
                             <ListItemAvatar>
                               <Avatar
                                 alt={`Avatar n°${value + 1}`}
-                                // src={`/img/avatar/${members.indexOf(value) + 1}.png`}
                                 src={require(`../images/avatar/${members.indexOf(value) + 1}.png`)}
                               />
                             </ListItemAvatar>
@@ -147,10 +188,10 @@ export default function ToDo(userName) {
                 </Typography>
                 <FormControl  sx={{ m: 1, width: '30ch' }}>
                     <Select
-                    displayEmpty
-                    inputProps={{ 'aria-label': 'Without label' }}
-                    value={memPay}
-                    onChange={handleMemPay}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
+                      value={memPay}
+                      onChange={handleMemPay}
                     >
                       <MenuItem value="">
                         <em>None</em>
@@ -167,26 +208,40 @@ export default function ToDo(userName) {
                 <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
                   Amount
                 </Typography>
-                <FormControl sx={{ m: 1, width: '30ch' }} variant="outlined">
+                {/* <FormControl sx={{ m: 1, width: '30ch' }} variant="outlined">
                   <OutlinedInput
-                    type='number'
-                    id="outlined-adornment-amount"
-                    value={todayMoney}
+                    // type='currency'
+                    id="formatted-numberformat-input"
+                    name="numberformat"
+                    value={values.numberformat}
                     endAdornment={<InputAdornment position="end">VND</InputAdornment>}
                     aria-describedby="outlined-amount-helper-text"
                     inputProps={{
                       'aria-label': 'amount',
+                      inputComponent: NumberFormatCustom
                     }}
-                    onChange={handleMoneyInput}
+                    onChange={handleChange}
                   />
-                </FormControl>
+                </FormControl> */}
+                <TextField
+                  // label="react-number-format"
+                  sx={{ width: '30ch', margin: '0 auto' }}
+                  value={amount.numberformat}
+                  onChange={handleChange}
+                  name="numberformat"
+                  id="formatted-numberformat-input"
+                  InputProps={{
+                    inputComponent: NumberFormatCustom
+                  }}
+                />
+
               </Grid>
               <Grid item xs={12} md={12}>
                 <TextField
                     sx={{ width: '30ch', margin: '0 auto' }}
                     id="outlined-read-only-input"
                     label="Amount In Words"
-                    value={todayMonWord}
+                    value={amountInWord}
                     InputProps={{
                       readOnly: true,
                     }}
@@ -194,6 +249,7 @@ export default function ToDo(userName) {
               </Grid>
               <Grid item xs={12} md={12}>
                 <TextField
+                    type={'text'}
                     sx={{ width: '30ch', margin: '0 auto' }}
                     id="outlined-info-input"
                     label="Infomation"

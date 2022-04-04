@@ -125,7 +125,7 @@ export default function Infomation() {
               <Grid item xs={12} md={12}>
                 <CardMedia
                   component={"iframe"}
-                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSEiOE6Vzj9UFKMdqLmvPsHiWBikjx2K3Ypu1Ntbr7t8lQWTdhStBrav4ToNC0uJMu9ID-dkfnYtzPB/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+                  src={"https://docs.google.com/spreadsheets/d/e/2PACX-1vSEiOE6Vzj9UFKMdqLmvPsHiWBikjx2K3Ypu1Ntbr7t8lQWTdhStBrav4ToNC0uJMu9ID-dkfnYtzPB/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"}
                   title="Sheet"
                   style={{ height: 400, width: '30ch', margin: '0px auto' }}
                 />
