@@ -8,6 +8,7 @@ import * as React from 'react';
 import TabPanel from '@mui/lab/TabPanel';
 import { Paper } from '@mui/material';
 import Information from './components/Information';
+import DataChart from './components/DataChart';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
               <TabList onChange={handleChange} aria-label="lab API tabs example" centered>
                 <Tab sx={{fontWeight: 'Bold'}} label="510Pay" value="1" />
                 <Tab sx={{fontWeight: 'Bold'}} label="Information" value="2" />
+                <Tab sx={{fontWeight: 'Bold'}} label="Data" value="3" />
               </TabList>
             </Box>
             <TabPanel value="1">
@@ -43,6 +45,9 @@ function App() {
             </TabPanel>
             <TabPanel value="2">
               <Information />
+            </TabPanel>
+            <TabPanel value="3">
+              <DataChart />
             </TabPanel>
           </TabContext>
         </Paper>

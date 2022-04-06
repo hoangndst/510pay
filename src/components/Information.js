@@ -48,7 +48,7 @@ export default function Infomation() {
 
   return (
     
-    <div style={ { width: '100%', margin: '0 auto' } }>    
+    <div style={ { width: '100%', margin: '0 auto', height: '100%' } }>    
         <Alert
             style={{ marginBottom: '10px', fontWeight: 'bold' }}
             severity="info">
