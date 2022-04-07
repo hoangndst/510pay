@@ -117,6 +117,9 @@ export default function DataChart() {
             severity="info">
             It's beta, don't expect too much!
         </Alert>
+                <Typography sx={{ fontSize: 20, fontWeight: 1000 }} color="text.first" gutterBottom>
+                    510Pay Data
+                </Typography>
         <Paper
             sx={{
                 p: 1,
@@ -127,9 +130,6 @@ export default function DataChart() {
                 theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
             }}
         >
-            <Typography sx={{ fontSize: 20, fontWeight: 1000 }} color="text.first" gutterBottom>
-                510Pay Data
-            </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
                     <Item>
@@ -147,6 +147,19 @@ export default function DataChart() {
                         />
                     </Item>
                 </Grid>
+            </Grid>
+        </Paper>
+        <Paper
+            sx={{
+                p: 1,
+                marginBottom: '10px',
+                maxWidth: '100%',
+                flexGrow: 1,
+                backgroundColor: (theme) =>
+                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+            }}
+        >
+            <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
                     <Item>
                         <Line 
@@ -165,7 +178,6 @@ export default function DataChart() {
                 </Grid>
             </Grid>
         </Paper>
-
         <Paper
             sx={{
                 p: 1,
@@ -186,7 +198,6 @@ export default function DataChart() {
                             <CalendarPicker date={date} onChange={(newDate) => setDate(newDate)} />
                         </Item>
                     </LocalizationProvider>
-                    
                 </Grid>
             </Grid>
         </Paper>
