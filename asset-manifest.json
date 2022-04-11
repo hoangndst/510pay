@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/510pay/static/css/main.a6319322.css",
-    "main.js": "/510pay/static/js/main.fbcb1f46.js",
+    "main.css": "/510pay/static/css/main.bce4e102.css",
+    "main.js": "/510pay/static/js/main.c4353258.js",
     "static/js/787.ff1ed2dc.chunk.js": "/510pay/static/js/787.ff1ed2dc.chunk.js",
-    "static/media/3.png": "/510pay/static/media/3.32bd24a0cb791cfff56c.png",
-    "static/media/5.png": "/510pay/static/media/5.64d8948b753ff4a2e8d3.png",
-    "static/media/1.png": "/510pay/static/media/1.bbe514f9a91691c4dc68.png",
-    "static/media/4.png": "/510pay/static/media/4.cea3e8af0a8eaf30d314.png",
-    "static/media/2.png": "/510pay/static/media/2.5b5628c4a0b8340e2bbf.png",
+    "static/media/3.png": "/510pay/static/media/3.327741b0fa231cb3a820.png",
+    "static/media/5.png": "/510pay/static/media/5.fa16e62c16373f997b33.png",
+    "static/media/1.png": "/510pay/static/media/1.41cb74813416487a2492.png",
+    "static/media/4.png": "/510pay/static/media/4.a87a39b13ed78a6a3863.png",
+    "static/media/2.png": "/510pay/static/media/2.960e60c5b58aa1432af5.png",
+    "static/media/logo.svg": "/510pay/static/media/logo.6ce24c58023cc2f8fd88.svg",
     "index.html": "/510pay/index.html",
-    "main.a6319322.css.map": "/510pay/static/css/main.a6319322.css.map",
-    "main.fbcb1f46.js.map": "/510pay/static/js/main.fbcb1f46.js.map",
+    "static/media/test.http": "/510pay/static/media/test.1ebbff7fd7644f43dd3f.http",
+    "main.bce4e102.css.map": "/510pay/static/css/main.bce4e102.css.map",
+    "main.c4353258.js.map": "/510pay/static/js/main.c4353258.js.map",
     "787.ff1ed2dc.chunk.js.map": "/510pay/static/js/787.ff1ed2dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6319322.css",
-    "static/js/main.fbcb1f46.js"
+    "static/css/main.bce4e102.css",
+    "static/js/main.c4353258.js"
   ]
 }
