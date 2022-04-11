@@ -18,7 +18,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Infomation() {
 
-  // const members = ['Hoàng', 'Hiên', 'Hiếu', 'Hưng', 'Tiến'];
   const [date, setDate] = React.useState(new Date());
   const [rows, setRows] = React.useState([]);
   const [columns, setColumns] = React.useState([]);
@@ -80,11 +79,7 @@ export default function Infomation() {
                       rows={rows} 
                       columns={columns} 
                       components={{ Toolbar: GridToolbar }}
-                      // hideFooter
-                      // autoHeight
-                      
                       disableSelectionOnClick
-                      // disableColumnMenu
                       disableColumnSelector
                     />
                   </div>

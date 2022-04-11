@@ -10,6 +10,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { updateData } from '../api/ApiServer';
 import NumberFormat from 'react-number-format';
+import { useAuth } from '../contexts/AuthContext';
 import { default as VNnum2words } from 'vn-num2words';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -48,9 +49,7 @@ NumberFormatCustom.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-
-
-export default function ToDo(userName) {
+export default function ToDo() {
 
   const members = ['Hoàng', 'Hiên', 'Hiếu', 'Hưng', 'Tiến'];
   const [alertMessage, setAlertMessage] = React.useState('');
@@ -66,6 +65,8 @@ export default function ToDo(userName) {
     textmask: '(100) 000-0000',
     numberformat: '0'
   });
+
+  const { currentUser } = useAuth();
 
   const handleChange = (event) => {
     setAmount({
@@ -92,6 +93,7 @@ export default function ToDo(userName) {
       }
       param += "memPay=" + memPay;
       param += "&todayMonInWords=" + amountInWord;
+      param += "&register=" + currentUser.displayName;
       param += "&info=" + infomation;
       updateData(param).then(res => {
         setAlertMessage(res);
@@ -143,7 +145,7 @@ export default function ToDo(userName) {
         >
             <Item>
               <Typography sx={{ fontSize: 20, fontWeight: 1000 }} color="text.first" gutterBottom>
-                  510GANGZ - TO PAY
+                  510Pay - For Real Money
               </Typography>
             </Item>
             <Grid container spacing={1} marginTop={1}>
@@ -208,23 +210,7 @@ export default function ToDo(userName) {
                 <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
                   Amount
                 </Typography>
-                {/* <FormControl sx={{ m: 1, width: '30ch' }} variant="outlined">
-                  <OutlinedInput
-                    // type='currency'
-                    id="formatted-numberformat-input"
-                    name="numberformat"
-                    value={values.numberformat}
-                    endAdornment={<InputAdornment position="end">VND</InputAdornment>}
-                    aria-describedby="outlined-amount-helper-text"
-                    inputProps={{
-                      'aria-label': 'amount',
-                      inputComponent: NumberFormatCustom
-                    }}
-                    onChange={handleChange}
-                  />
-                </FormControl> */}
                 <TextField
-                  // label="react-number-format"
                   sx={{ width: '30ch', margin: '0 auto' }}
                   value={amount.numberformat}
                   onChange={handleChange}
@@ -261,9 +247,6 @@ export default function ToDo(userName) {
                   />
               </Grid>
               <Grid item xs={12} md={12}>
-                {/* <Button variant="contained" startIcon={<AddTaskIcon />} onClick={handleClickOpen} >
-                  ADD TO TODAY LIST
-                </Button> */}
                 <LoadingButton
                   onClick={handleClickOpen}
                   endIcon={<AddTaskIcon />}
@@ -280,7 +263,7 @@ export default function ToDo(userName) {
                   aria-describedby="alert-dialog-description"
                 >
                   <DialogTitle id="alert-dialog-title" sx={{ fontSize: 20, fontWeight: 1000 }}>
-                    {"Notification from 510Gangz"}
+                    {"Notification from 510Pay"}
                   </DialogTitle>
                   <DialogContent>
                     <DialogContentText id="alert-dialog-description">
