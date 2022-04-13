@@ -5,27 +5,34 @@ An funny online web app I made for my homies at My Dinh dormitory to manage our 
 
 ## Features
 ### 1. Select participants, payer, amount and information.
+- Account and password are required.
 - Auto send notification to participants.
 
 <p align="center">
   <img src="src/images/readme/1.png" width="200" />
+  <img src="src/images/readme/2.png" width="200" />
+  <img src="src/images/readme/3.png" width="200" />
 </p>
 
 ### 2. Account Balance, day audit log and all history automatically updated to the database and spreadsheet.
 
 <p align="center">
-  <img src="src/images/readme/2.png" width="200" />
-  <img src="src/images/readme/3.png" width="200" />
+  <img src="src/images/readme/6.png" width="200" />
   <img src="src/images/readme/4.png" width="200" />
+  <img src="src/images/readme/5.png" width="200" />
 </p>
 
 ### 3. Data visualization of day, week, month and year.
 <p align="center">
-  <img src="src/images/readme/5.png" width="200" />
+  <img src="src/images/readme/8.png" width="200" />
 </p>
 
-### More features coming soon.
-
+### More features in the future.
+  - [x] Show spreadsheet in the app.
+  - [x] Visualize data in the app with charts.
+  - [x] Login required.
+  - [ ] Improve the database for more users.
+  - [ ] Improve the app UI for better user experience.
 
 ## Available Scripts
 
