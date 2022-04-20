@@ -1,22 +1,25 @@
 {
   "files": {
     "main.css": "/510pay/static/css/main.bce4e102.css",
-    "main.js": "/510pay/static/js/main.c4353258.js",
-    "static/js/787.ff1ed2dc.chunk.js": "/510pay/static/js/787.ff1ed2dc.chunk.js",
-    "static/media/3.png": "/510pay/static/media/3.327741b0fa231cb3a820.png",
-    "static/media/5.png": "/510pay/static/media/5.fa16e62c16373f997b33.png",
-    "static/media/1.png": "/510pay/static/media/1.41cb74813416487a2492.png",
-    "static/media/4.png": "/510pay/static/media/4.a87a39b13ed78a6a3863.png",
-    "static/media/2.png": "/510pay/static/media/2.960e60c5b58aa1432af5.png",
+    "main.js": "/510pay/static/js/main.a4292b3d.js",
+    "static/js/787.0b8edc54.chunk.js": "/510pay/static/js/787.0b8edc54.chunk.js",
+    "static/media/3.png": "/510pay/static/media/3.114649058fdb1978e8c0.png",
+    "static/media/5.png": "/510pay/static/media/5.772282e2b1ee5116b5c5.png",
+    "static/media/2.png": "/510pay/static/media/2.5b5628c4a0b8340e2bbf.png",
+    "static/media/1.png": "/510pay/static/media/1.654e383de601d39bf516.png",
+    "static/media/4.png": "/510pay/static/media/4.b36eda3aaeacc0917013.png",
+    "static/media/8.png": "/510pay/static/media/8.876f9c6b978515f8ab02.png",
+    "static/media/6.png": "/510pay/static/media/6.02a95d3a93c665e31fb1.png",
+    "static/media/7.png": "/510pay/static/media/7.814df63abfbc3b717fb5.png",
     "static/media/logo.svg": "/510pay/static/media/logo.6ce24c58023cc2f8fd88.svg",
     "index.html": "/510pay/index.html",
     "static/media/test.http": "/510pay/static/media/test.1ebbff7fd7644f43dd3f.http",
     "main.bce4e102.css.map": "/510pay/static/css/main.bce4e102.css.map",
-    "main.c4353258.js.map": "/510pay/static/js/main.c4353258.js.map",
-    "787.ff1ed2dc.chunk.js.map": "/510pay/static/js/787.ff1ed2dc.chunk.js.map"
+    "main.a4292b3d.js.map": "/510pay/static/js/main.a4292b3d.js.map",
+    "787.0b8edc54.chunk.js.map": "/510pay/static/js/787.0b8edc54.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bce4e102.css",
-    "static/js/main.c4353258.js"
+    "static/js/main.a4292b3d.js"
   ]
 }
