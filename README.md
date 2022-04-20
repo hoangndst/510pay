@@ -31,6 +31,7 @@ An funny online web app I made for my homies at My Dinh dormitory to manage our 
   - [x] Show spreadsheet in the app.
   - [x] Visualize data in the app with charts.
   - [x] Login required.
+  - [x] Add Calculator.
   - [ ] Improve the database for more users.
   - [ ] Improve the app UI for better user experience.
 

@@ -65,7 +65,7 @@ export default function Infomation() {
         >
             <Item>
               <Typography sx={{ fontSize: 20, fontWeight: 1000 }} color="text.first" gutterBottom>
-                  510GANGZ - TO PAY
+                  510Pay - For Real Money
               </Typography>
             </Item>
             <Grid container spacing={1} marginTop={1}>
