@@ -87,6 +87,11 @@ export default function ToDo() {
       setAlertMessage('Please fill all fields');
       setLoading(false);
       setOpen(true);
+      setAmount({
+        textmask: '(100) 000-0000',
+        numberformat: '0'
+      });
+      
     } else {
       var param = "todayMoney=" + amount.numberformat + "&";
       for (var i = 0; i < listMemEat.length; i++) {
@@ -100,6 +105,7 @@ export default function ToDo() {
         setAlertMessage(res);
         setLoading(false);
         setOpen(true);
+
       });
     }
   };
