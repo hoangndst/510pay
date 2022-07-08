@@ -1,4 +1,4 @@
-import { Grid, TextField, Paper, Alert, Typography, CardMedia } from '@mui/material'
+import { Grid, TextField, Paper, Alert, Typography, CardMedia, Box, Container } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import React from 'react'
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -7,13 +7,15 @@ import DatePicker from '@mui/lab/DatePicker';
 import { getData } from '../api/ApiServer';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { useEffect } from 'react';
+import BrandingProvider from '../modules/BrandingProvider';
+import { useTheme } from '@mui/material/styles'
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
 }));
 
 export default function Infomation() {
@@ -23,7 +25,7 @@ export default function Infomation() {
   const [columns, setColumns] = React.useState([]);
   const [logRow, setLogRow] = React.useState([]);
   const [logColumns, setLogColumns] = React.useState([]);
-
+  const theme = useTheme();
 
   useEffect(() => {
     getData('option=toPay').then(res => {
@@ -46,38 +48,55 @@ export default function Infomation() {
   }, [date]);
 
   return (
-    
-    <div style={ { width: '100%', margin: '0 auto', height: '100%' } }>    
-        <Alert
-            style={{ marginBottom: '10px', fontWeight: 'bold' }}
-            severity="info">
-            It's beta, don't expect too much!
-        </Alert>
-        <Paper
+    <BrandingProvider>
+      <Box sx={{ width: '100%', minHeight: '100vh', margin: '0px auto' }}>
+        <Container
+          sx={{
+            padding: theme.spacing(2),
+          }}
+        >
+          <Box
             sx={{
-                p: 1,
-                marginBottom: '10px',
-                maxWidth: '100%',
-                flexGrow: 1,
-                backgroundColor: (theme) =>
+              maxWidth: '500px',
+              margin: '0 auto',
+              marginBottom: '20px',
+            }}
+          >
+            <Alert
+              sx={{
+                fontWeight: 'bold'
+              }}
+              severity="warning"
+            >
+              Its beta, dont expect too much!
+            </Alert>
+          </Box>
+          <Paper
+            sx={{
+              p: 1,
+              maxWidth: '500px',
+              margin: '0 auto',
+              marginBottom: '20px',
+              flexGrow: 1,
+              backgroundColor: (theme) =>
                 theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
             }}
-        >
+          >
             <Item>
               <Typography sx={{ fontSize: 20, fontWeight: 1000 }} color="text.first" gutterBottom>
-                  510Pay - For Real Money
+                510Pay - For Real Money
               </Typography>
             </Item>
-            <Grid container spacing={1} marginTop={1}>
+            <Grid container spacing={2} marginTop={1}>
               <Grid item xs={12} md={12}>
                 <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
                   Account Balance
                 </Typography>
-                <div style={{ height: 400, width: '30ch', margin: '0px auto' }}>
-                  <div style={{ height: 350, width: '30ch' }}>    
-                    <DataGrid 
-                      rows={rows} 
-                      columns={columns} 
+                <div style={{ height: 400, width: '35ch', margin: '0px auto' }}>
+                  <div style={{ height: 350 }}>
+                    <DataGrid
+                      rows={rows}
+                      columns={columns}
                       components={{ Toolbar: GridToolbar }}
                       disableSelectionOnClick
                       disableColumnSelector
@@ -86,30 +105,30 @@ export default function Infomation() {
                 </div>
               </Grid>
               <Grid item xs={12} md={12}>
-                  <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
-                    Day AuditLog
-                  </Typography>
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <DatePicker
-                      // label="Pick day to show log"
-                      value={date}
-                      inputFormat="dd/MM/yyyy"
-                      onChange={(newValue) => {
-                        setDate(newValue);
-                        // console.log(newValue);
-                      }}
-                      renderInput={(params) => <TextField {...params} />}
-                    />
-                  </LocalizationProvider>
-                  <div style={{ height: 400, width: '30ch', margin: '10px auto' }}>
-                  <div style={{ height: 350, width: '30ch' }}>    
-                    <DataGrid 
+                <Typography sx={{ fontSize: 15, fontWeight: 1000 }} color="text.first" gutterBottom>
+                  Day AuditLog
+                </Typography>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    // label="Pick day to show log"
+                    value={date}
+                    inputFormat="dd/MM/yyyy"
+                    onChange={(newValue) => {
+                      setDate(newValue);
+                      // console.log(newValue);
+                    }}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </LocalizationProvider>
+                <div style={{ height: 400, width: '35ch', margin: '10px auto' }}>
+                  <div style={{ height: 350 }}>
+                    <DataGrid
                       rows={logRow}
                       columns={logColumns}
                       components={{ Toolbar: GridToolbar }}
                       // hideFooter
                       // autoHeight
-                      
+
                       disableSelectionOnClick
                       // disableColumnMenu
                       disableColumnSelector
@@ -117,16 +136,27 @@ export default function Infomation() {
                   </div>
                 </div>
               </Grid>
-              <Grid item xs={12} md={12}>
-                <CardMedia
+            </Grid>
+          </Paper>
+          <Paper
+            sx={{
+              p: 1,
+              maxWidth: '5000px',
+              margin: '0 auto',
+              flexGrow: 1,
+              backgroundColor: (theme) =>
+                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+            }}
+          >
+            <CardMedia
                   component={"iframe"}
-                  src={"https://docs.google.com/spreadsheets/d/e/2PACX-1vSEiOE6Vzj9UFKMdqLmvPsHiWBikjx2K3Ypu1Ntbr7t8lQWTdhStBrav4ToNC0uJMu9ID-dkfnYtzPB/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"}
+                  src={"https://docs.google.com/spreadsheets/d/e/2PACX-1vSEiOE6Vzj9UFKMdqLmvPsHiWBikjx2K3Ypu1Ntbr7t8lQWTdhStBrav4ToNC0uJMu9ID-dkfnYtzPB/pubhtml?gid=0&single=false"}
                   title="Sheet"
-                  style={{ height: 400, width: '30ch', margin: '0px auto' }}
+                  style={{ height: '1000px', maxWidth: '1500px', margin: '0px auto' }}
                 />
-              </Grid>
-            </Grid> 
-        </Paper>
-    </div>
+          </Paper>
+        </Container>
+      </Box>
+    </BrandingProvider>
   )
 }

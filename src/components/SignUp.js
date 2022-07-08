@@ -3,7 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { auth, db } from '../utils/firebase';
+import { auth, db } from '../modules/firebase';
 import { updateProfile } from 'firebase/auth';
 import { collection, addDoc } from "firebase/firestore"; 
 
