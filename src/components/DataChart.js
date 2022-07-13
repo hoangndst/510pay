@@ -65,13 +65,13 @@ export default function DataChart() {
 
   useEffect(() => {
     getData('&option=dayAmount').then(res => {
-      setDayData(res.data);
+      setDayData(res.data.slice(-10));
       setChartDayData({
-        labels: res.data.slice(res.data.length - 10, res.data.length).map(item => item.day),
+        labels: res.data.slice(-10).map(item => item.day),
         datasets: [
           {
             label: "Amount",
-            data: res.data.map(item => item.amount),
+            data: res.data.slice(-10).map(item => item.amount),
             backgroundColor: [
               //   "rgba(75,192,192,1)",
               "#ecf0f1",

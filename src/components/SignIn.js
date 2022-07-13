@@ -40,7 +40,7 @@ export default function SignIn() {
 
   return (
     <BrandingProvider>
-      <Box sx={{ width: '100%', minHeight: '100vh', margin: '50px auto' }}>
+      <Box sx={{ width: '100%', minHeight: '100vh', margin: '0px auto' }}>
         <Container
           sx={{
             padding: theme.spacing(2),

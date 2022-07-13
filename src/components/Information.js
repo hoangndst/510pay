@@ -8,7 +8,7 @@ import { getData } from '../api/ApiServer';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { useEffect } from 'react';
 import BrandingProvider from '../modules/BrandingProvider';
-import { useTheme } from '@mui/material/styles'
+import { useTheme } from '@mui/material/styles';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
