@@ -107,6 +107,13 @@ export default function ToDo() {
       updateData(param).then(res => {
         setAlertMessage(res);
         setLoading(false);
+        setAmount({
+          textmask: '(100) 000-0000',
+          numberformat: '0'
+        });
+        setMemPay('');
+        setInfomation('');
+        setAmountInWord('');
         setOpen(true);
 
       });

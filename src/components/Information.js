@@ -149,11 +149,11 @@ export default function Infomation() {
             }}
           >
             <CardMedia
-                  component={"iframe"}
-                  src={"https://docs.google.com/spreadsheets/d/e/2PACX-1vSEiOE6Vzj9UFKMdqLmvPsHiWBikjx2K3Ypu1Ntbr7t8lQWTdhStBrav4ToNC0uJMu9ID-dkfnYtzPB/pubhtml?gid=0&single=false"}
-                  title="Sheet"
-                  style={{ height: '1000px', maxWidth: '1500px', margin: '0px auto' }}
-                />
+              component={"iframe"}
+              src={"https://docs.google.com/spreadsheets/d/e/2PACX-1vSEiOE6Vzj9UFKMdqLmvPsHiWBikjx2K3Ypu1Ntbr7t8lQWTdhStBrav4ToNC0uJMu9ID-dkfnYtzPB/pubhtml?gid=0&single=false"}
+              title="Sheet"
+              style={{ height: '1000px', maxWidth: '1500px', margin: '0px auto' }}
+            />
           </Paper>
         </Container>
       </Box>
