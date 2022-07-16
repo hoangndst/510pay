@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/510pay/static/css/main.bce4e102.css",
-    "main.js": "/510pay/static/js/main.92994a0b.js",
+    "main.js": "/510pay/static/js/main.fdde7c8d.js",
     "static/js/787.0b8edc54.chunk.js": "/510pay/static/js/787.0b8edc54.chunk.js",
     "static/media/3.png": "/510pay/static/media/3.631085aa91db1efaeeb7.png",
     "static/media/5.png": "/510pay/static/media/5.c4d5819853796186f536.png",
@@ -15,11 +15,11 @@
     "index.html": "/510pay/index.html",
     "static/media/test.http": "/510pay/static/media/test.1ebbff7fd7644f43dd3f.http",
     "main.bce4e102.css.map": "/510pay/static/css/main.bce4e102.css.map",
-    "main.92994a0b.js.map": "/510pay/static/js/main.92994a0b.js.map",
+    "main.fdde7c8d.js.map": "/510pay/static/js/main.fdde7c8d.js.map",
     "787.0b8edc54.chunk.js.map": "/510pay/static/js/787.0b8edc54.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bce4e102.css",
-    "static/js/main.92994a0b.js"
+    "static/js/main.fdde7c8d.js"
   ]
 }
