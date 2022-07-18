@@ -86,6 +86,14 @@ export default function ToDo() {
 
   const handleClickOpen = () => {
     setLoading(true);
+    
+    if (members.includes(currentUser.displayName) === false) {
+      setAlertMessage('You do not have permission to use this app!');
+      setOpen(true);
+      setLoading(false);
+      return;
+    }
+
     if (memPay === '' || infomation === '' || listMemEat.length === 0 || amount.numberformat === '' || parseInt(amount.numberformat) === 0) {
       setAlertMessage('Please fill all fields');
       setLoading(false);

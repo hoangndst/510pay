@@ -6,7 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import BrandingProvider from '../modules/BrandingProvider';
 import { useTheme } from '@mui/material/styles'
+import Slide from '@mui/material/Slide';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import { Tooltip } from '@mui/material';
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function SignIn() {
 
@@ -18,6 +26,17 @@ export default function SignIn() {
   const navigate = useNavigate();
   const { signIn, currentUser } = useAuth();
   const theme = useTheme();
+
+  const [openDialog, setOpenDialog] = React.useState(false);
+
+  const handleClickOpenDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,6 +60,23 @@ export default function SignIn() {
   return (
     <BrandingProvider>
       <Box sx={{ width: '100%', minHeight: '100vh', margin: '0px auto' }}>
+        <Tooltip
+          sx={{
+            marginRight: theme.spacing(1),
+            position: 'absolute',
+            bottom: 20,
+            right: 20,
+          }}
+          title="Notifications"
+        >
+          <IconButton size='small' aria-label="notification" color="primary"
+            onClick={handleClickOpenDialog}
+          >
+            <Badge badgeContent={1} color="error">
+              <NotificationsNoneOutlinedIcon color="action" />
+            </Badge>
+          </IconButton>
+        </Tooltip>
         <Container
           sx={{
             padding: theme.spacing(2),
@@ -53,14 +89,14 @@ export default function SignIn() {
               marginBottom: '20px',
             }}
           >
-            <img 
-              src={require(`../images/avatar/6.png`)} 
-              alt="510pay" 
+            <img
+              src={require(`../images/avatar/6.png`)}
+              alt="510pay"
               style={{
                 width: '30%',
                 margin: '0 auto',
                 display: 'block',
-                
+
               }}
             />
           </Box>
@@ -70,16 +106,38 @@ export default function SignIn() {
               maxWidth: '500px',
               margin: '0 auto',
               marginBottom: '20px',
+
             }}
           >
             <Alert
               sx={{
-                fontWeight: 'bold'
+                fontWeight: 'bold',
               }}
               severity="warning"
             >
               Its beta, dont expect too much!
             </Alert>
+            <Dialog
+              open={openDialog}
+              TransitionComponent={Transition}
+              keepMounted
+              onClose={handleCloseDialog}
+              aria-describedby="alert-dialog-slide"
+            >
+              <DialogTitle>{"Do you want to test this Web App?"}</DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                  <strong>This account is for testing purposes only!</strong>
+                  <br />
+                  Email: <strong> test@510pay.com </strong>
+                  <br />
+                  Password: <strong> 123456 </strong>
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleCloseDialog}>Got it</Button>
+              </DialogActions>
+            </Dialog>
           </Box>
 
           <Box sx={{ margin: '0 auto', maxWidth: '500px' }} container spacing={2} >
