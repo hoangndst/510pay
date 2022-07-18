@@ -3,6 +3,8 @@
 ### What is 510Pay?
 An funny online web app I made for my homies at My Dinh dormitory to manage our money.
 
+> Link to the app: [510Pay](https://hoangndst.github.io/510pay/)
+
 ## Features
 ### 1. Select participants, payer, amount and information.
 - Account and password are required.
@@ -24,7 +26,7 @@ An funny online web app I made for my homies at My Dinh dormitory to manage our 
 
 ### 3. Data visualization of day, week, month and year.
 <p align="center">
-  <img src="src/images/readme/8.png" width="200" />
+  <img src="src/images/readme/7.png" width="200" />
 </p>
 
 ### More features in the future.
@@ -32,8 +34,8 @@ An funny online web app I made for my homies at My Dinh dormitory to manage our 
   - [x] Visualize data in the app with charts.
   - [x] Login required.
   - [x] Add Calculator.
+  - [x] Improve the app UI for better user experience.
   - [ ] Improve the database for more users.
-  - [ ] Improve the app UI for better user experience.
 
 ## Available Scripts
 
