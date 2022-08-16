@@ -9,6 +9,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import { Paper, Avatar } from '@mui/material';
 import Information from './components/Information';
 import DataChart from './components/DataChart';
+import TestCam from './components/TestCam';
 
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
